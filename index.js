@@ -1,9 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
+const checkDirOnExist = pathForDir => {if (!fs.existsSync(pathForDir)) console.error(`исходная папка: ${pathForDir} не найдена`);return true};
+const deleteExistDir = pathForDir => {if (fs.existsSync(pathForDir)) deleteDir(pathForDir)};
 
+// Полностью синхронная
 const deleteDir = pathForDir => {
-    if (!fs.existsSync(pathForDir)) return console.error(`исходная папка: ${pathForDir} не найдена`);
+    if (!checkDirOnExist(pathForDir)) return;
 
     (function read(pathForDir) {
         fs.readdirSync(pathForDir).forEach(file => {
@@ -22,7 +25,8 @@ const deleteDir = pathForDir => {
 };
 
 const copyDirectory = (input, output) => {
-    if (fs.existsSync(output)) deleteDir(output);
+    if (!checkDirOnExist(input)) return;
+    deleteExistDir(output);
 
     (function copy(input, output) {
         fs.mkdirSync(output);
@@ -35,26 +39,29 @@ const copyDirectory = (input, output) => {
                 let newOutput = path.join(output, file);
 
                 if (fs.statSync(newInput).isDirectory()) copy(newInput, newOutput);
-                else fs.link(newInput, newOutput, err => console.log(err ? err : `${file} success!`));
+                else fs.link(newInput, newOutput, err => console.log(err ? err : `файл ${file} успешно скопирован!`));
 
             })
         });
-    })(input, output)
+    })(input, output);
 };
 
-
 const distribute = (input, output, isDeleteInput = false) => {
-    if (!fs.existsSync(input)) return console.error(`исходная папка: ${input} не найдена`);
-    if (fs.existsSync(output)) deleteDir(output);
+    if (!checkDirOnExist(input)) return;
+    deleteExistDir(output);
 
     fs.mkdirSync(output);
     console.log(`папка ${output} создана`);
 
-    let count = 0;
+    let count = 0; // 1. Создаем счетчик
     let readCount = () => !--count && isDeleteInput && deleteDir(input);
+    /* 4. Уменьшаем счетчик, как только он станет равен 0,
+    значит была завершена посленяя функция чтения.
+    И удаляем исходную папку, если это указано
+     */
 
     (function read(input, output) {
-        ++count;
+        ++count; // 2. Счетчик увеличивается с рекурсией
 
         fs.readdir(input, (err, files) => {
             if (err) return console.error(`Ошибка чтения каталога: ${err}`);
@@ -73,7 +80,7 @@ const distribute = (input, output, isDeleteInput = false) => {
 
             });
 
-            readCount()
+            readCount(); // 3. Когда операции в директории завершены...
         })
     })(input, output);
 
@@ -82,7 +89,6 @@ const distribute = (input, output, isDeleteInput = false) => {
 // copyDirectory(path.join(__dirname, 'savedData'), path.join(__dirname, 'in'));
 // distribute(path.join(__dirname, 'in'), path.join(__dirname, 'out'), false);
 // deleteDir(path.join(__dirname, 'out'));
-
 
 let [operation, input, output, isDeleteInput] = process.argv.slice(2);
 

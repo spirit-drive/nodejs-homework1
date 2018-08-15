@@ -3,6 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="f1244533-0a0a-4a3d-a30d-47a22d24f296" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/in/1/bubbly_wave___stock_texture_by_jrmb_stock.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/1/gold_bead_halo_circle_texture_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/1/gold_metal_wrinkled_paper_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/1/gold_paint_on_canvas_texture_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/1/green_paint_texture_background_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/7dbc76b15a9a1eba.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/texture_88_by_wanderingsoul_stox.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/texture_above_the_clouds_by_sophiaastock-d10irs4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/veverb/vrverve/aferbrtb/texture_54_by_sirius_sdz.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/veverb/vrverve/aferbrtb/vfry/texture_66_by_wanderingsoul_stox.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/veverb/vrverve/texture_26_by_wanderingsoul_stox.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/eberge/acrylic_gold_paint_swirl_stock_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/eberge/metallic_sun_shine_gold_sheet_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/eberge/red___yellow_colored_texture_by_jrmb_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/eberge/texture_1___watery_snow_by_saekaeru.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/grunge_texture__by_jrmb_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/marbled_paint_blue_texture_by_enchantedgal_stock.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/in/wrge/matallic_texture_by_rebelsheepgomooo.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,8 +48,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -206,12 +224,12 @@
       <updated>1534253105176</updated>
       <workItem from="1534253107205" duration="13354000" />
       <workItem from="1534276202860" duration="2523000" />
-      <workItem from="1534337462181" duration="14209000" />
+      <workItem from="1534337462181" duration="15280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30086000" />
+    <option name="totallyTimeSpent" value="31157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -331,8 +349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
           <folding />
         </state>
       </provider>
