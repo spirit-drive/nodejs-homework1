@@ -21,28 +21,25 @@ const deleteDir = pathForDir => {
     })(pathForDir);
 };
 
-const _copyDirectory = (input, output) => {
-    fs.mkdirSync(output);
-    fs.readdir(input, (err, files) => {
-
-        if (err) return console.error('Ошибка чтения каталога');
-
-        files.forEach(file => {
-            let newInput = path.join(input, file);
-            let newOutput = path.join(output, file);
-
-            if (fs.statSync(newInput).isDirectory()) _copyDirectory(newInput, newOutput);
-            else fs.link(newInput, newOutput, err => console.log(err ? err : `${file} success!`));
-
-        })
-    });
-
-};
-
-
 const copyDirectory = (input, output) => {
     if (fs.existsSync(output)) deleteDir(output);
-    _copyDirectory(input, output);
+
+    (function copy(input, output) {
+        fs.mkdirSync(output);
+        fs.readdir(input, (err, files) => {
+
+            if (err) return console.error('Ошибка чтения каталога');
+
+            files.forEach(file => {
+                let newInput = path.join(input, file);
+                let newOutput = path.join(output, file);
+
+                if (fs.statSync(newInput).isDirectory()) copy(newInput, newOutput);
+                else fs.link(newInput, newOutput, err => console.log(err ? err : `${file} success!`));
+
+            })
+        });
+    })(input, output)
 };
 
 
@@ -82,6 +79,11 @@ const distribute = (input, output, isDeleteInput = false) => {
 
 };
 
+// copyDirectory(path.join(__dirname, 'savedData'), path.join(__dirname, 'in'));
+// distribute(path.join(__dirname, 'in'), path.join(__dirname, 'out'), false);
+// deleteDir(path.join(__dirname, 'out'));
+
+
 let [operation, input, output, isDeleteInput] = process.argv.slice(2);
 
 if (!input) return console.error(`Не объявленны необходимые переменные! input: ${input}`);
@@ -101,7 +103,3 @@ switch (operation) {
     default:
         console.log('Команда не распознана. Пожалуйста введите название операции "copy" или "distribute" или "delete" и передайте нужные параметры')
 }
-
-// copyDirectory(path.join(__dirname, 'savedData'), path.join(__dirname, 'in'));
-// distribute(path.join(__dirname, 'in'), path.join(__dirname, 'out'), false);
-// deleteDir(path.join(__dirname, 'out'));
